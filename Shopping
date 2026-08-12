@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+public class ShoppingMall {
+
+    static ArrayList<User> users = new ArrayList<>();
+
+    static Product[] products = {
+        new Product("Shoes", 1500),
+        new Product("T-Shirt", 800),
+        new Product("Watch", 2500),
+        new Product("Bag", 1200),
+        new Product("Headphones", 3000)
+    };
+
+    static void register(String name, String email, String password) {
+        users.add(new User(name, email, password));
+        System.out.println("Registration Successful!");
+    }
+
+    static User login(String email, String password) {
+
+        for (User u : users) {
+            if (u.email.equals(email) && u.password.equals(password)) {
+                return u;
+            }
+        }
+
+        return null;
+    }
+}
